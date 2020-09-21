@@ -1,60 +1,59 @@
 {
-    "name": "react-native-video-pfy",
-    "version": "0.0.1",
-    "description": "A <Video /> element for react-native",
-    "main": "Video.js",
-    "license": "MIT",
-    "author": "Brent Vatne <brentvatne@gmail.com> (https://github.com/brentvatne)",
-    "contributors": [
-        {
-            "name": "Isaiah Grey",
-            "email": "isaiahgrey@gmail.com"
-        },
-        {
-            "name": "Johannes Lumpe",
-            "email": "johannes@lum.pe"
-        },
-        {
-            "name": "Baris Sencan",
-            "email": "baris.sncn@gmail.com"
-        },
-        {
-            "name": "Hampton Maxwell",
-            "email": "me@hamptonmaxwell.com"
-        }
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:ryanazrian/react-native-video.git"
-    },
-    "devDependencies": {
-        "eslint": "1.10.3",
-        "babel-eslint": "5.0.0-beta8",
-        "eslint-plugin-react": "3.16.1",
-        "eslint-config-airbnb": "4.0.0"
-    },
-    "dependencies": {
-        "keymirror": "0.1.1",
-        "prop-types": "^15.5.10",
-        "shaka-player": "2.4.4"
-    },
-    "scripts": {
-        "test": "node_modules/.bin/eslint *.js"
-    },
-    "rnpm": {
-        "android": {
-            "sourceDir": "./android-exoplayer"
-        }
-    },
-    "files":[
-        "android-exoplayer",
-        "android",
-        "dom",
-        "ios",
-        "windows",
-        "FilterType.js",
-        "TextTrackType.js",
-        "VideoResizeMode.js",
-        "react-native-video.podspec"
-    ]
+  "name": "react-native-video-pfy",
+  "version": "0.0.2",
+  "description": "A <Video /> element for react-native",
+  "main": "Video.js",
+  "license": "MIT",
+  "author": "Brent Vatne <brentvatne@gmail.com> (https://github.com/brentvatne)",
+  "contributors": [
+    "Isaiah Grey <isaiahgrey@gmail.com>",
+    "Johannes Lumpe <johannes@lum.pe>",
+    "Baris Sencan <baris.sncn@gmail.com>",
+    "Hampton Maxwell <me@hamptonmaxwell.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ryanazrian/react-native-video.git"
+  },
+  "devDependencies": {
+    "eslint": "1.10.3",
+    "babel-eslint": "5.0.0-beta8",
+    "eslint-plugin-react": "3.16.1",
+    "eslint-config-airbnb": "4.0.0"
+  },
+  "dependencies": {
+    "keymirror": "0.1.1",
+    "prop-types": "^15.5.10",
+    "shaka-player": "2.4.4"
+  },
+  "scripts": {
+    "test": "eslint *.js"
+  },
+  "rnpm": {
+    "android": {
+      "sourceDir": "./android-exoplayer"
+    }
+  },
+  "files": [
+    "android-exoplayer",
+    "android",
+    "dom",
+    "ios",
+    "windows",
+    "FilterType.js",
+    "TextTrackType.js",
+    "VideoResizeMode.js",
+    "react-native-video.podspec"
+  ],
+  "bugs": {
+    "url": "https://github.com/ryanazrian/react-native-video/issues"
+  },
+  "homepage": "https://github.com/ryanazrian/react-native-video#readme",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "keywords": [
+    "video-pfy"
+  ]
 }
