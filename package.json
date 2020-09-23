@@ -1,6 +1,6 @@
 {
   "name": "react-native-video-pfy",
-  "version": "0.0.2",
+  "version": "0.1.3",
   "description": "A <Video /> element for react-native",
   "main": "Video.js",
   "license": "MIT",
@@ -43,7 +43,8 @@
     "FilterType.js",
     "TextTrackType.js",
     "VideoResizeMode.js",
-    "react-native-video.podspec"
+    "react-native-video.podspec",
+    "DRMType.js"
   ],
   "bugs": {
     "url": "https://github.com/ryanazrian/react-native-video/issues"

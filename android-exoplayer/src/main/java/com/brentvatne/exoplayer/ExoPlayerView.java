@@ -1,8 +1,9 @@
 package com.brentvatne.exoplayer;
+// package com.pahamify.android.brentvatne.exoplayer;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -54,14 +55,12 @@ public final class ExoPlayerView extends FrameLayout {
 
         this.context = context;
 
-        layoutParams = new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
+        layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
 
         componentListener = new ComponentListener();
 
-        FrameLayout.LayoutParams aspectRatioParams = new FrameLayout.LayoutParams(
-                FrameLayout.LayoutParams.MATCH_PARENT,
+        FrameLayout.LayoutParams aspectRatioParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT);
         aspectRatioParams.gravity = Gravity.CENTER;
         layout = new AspectRatioFrameLayout(context);
@@ -112,9 +111,10 @@ public final class ExoPlayerView extends FrameLayout {
     }
 
     /**
-     * Set the {@link SimpleExoPlayer} to use. The {@link SimpleExoPlayer#setTextOutput} and
-     * {@link SimpleExoPlayer#setVideoListener} method of the player will be called and previous
-     * assignments are overridden.
+     * Set the {@link SimpleExoPlayer} to use. The
+     * {@link SimpleExoPlayer#setTextOutput} and
+     * {@link SimpleExoPlayer#setVideoListener} method of the player will be called
+     * and previous assignments are overridden.
      *
      * @param player The {@link SimpleExoPlayer} to use.
      */
@@ -152,8 +152,9 @@ public final class ExoPlayerView extends FrameLayout {
     }
 
     /**
-     * Get the view onto which video is rendered. This is either a {@link SurfaceView} (default)
-     * or a {@link TextureView} if the {@code use_texture_view} view attribute has been set to true.
+     * Get the view onto which video is rendered. This is either a
+     * {@link SurfaceView} (default) or a {@link TextureView} if the
+     * {@code use_texture_view} view attribute has been set to true.
      *
      * @return either a {@link SurfaceView} or a {@link TextureView}.
      */
@@ -176,8 +177,7 @@ public final class ExoPlayerView extends FrameLayout {
     private final Runnable measureAndLayout = new Runnable() {
         @Override
         public void run() {
-            measure(
-                    MeasureSpec.makeMeasureSpec(getWidth(), MeasureSpec.EXACTLY),
+            measure(MeasureSpec.makeMeasureSpec(getWidth(), MeasureSpec.EXACTLY),
                     MeasureSpec.makeMeasureSpec(getHeight(), MeasureSpec.EXACTLY));
             layout(getLeft(), getTop(), getRight(), getBottom());
         }
@@ -190,7 +190,8 @@ public final class ExoPlayerView extends FrameLayout {
         TrackSelectionArray selections = player.getCurrentTrackSelections();
         for (int i = 0; i < selections.length; i++) {
             if (player.getRendererType(i) == C.TRACK_TYPE_VIDEO && selections.get(i) != null) {
-                // Video enabled so artwork must be hidden. If the shutter is closed, it will be opened in
+                // Video enabled so artwork must be hidden. If the shutter is closed, it will be
+                // opened in
                 // onRenderedFirstFrame().
                 return;
             }
@@ -199,8 +200,8 @@ public final class ExoPlayerView extends FrameLayout {
         shutterView.setVisibility(VISIBLE);
     }
 
-    private final class ComponentListener implements SimpleExoPlayer.VideoListener,
-            TextRenderer.Output, ExoPlayer.EventListener {
+    private final class ComponentListener
+            implements SimpleExoPlayer.VideoListener, TextRenderer.Output, ExoPlayer.EventListener {
 
         // TextRenderer.Output implementation
 
@@ -212,7 +213,8 @@ public final class ExoPlayerView extends FrameLayout {
         // SimpleExoPlayer.VideoListener implementation
 
         @Override
-        public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
+        public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees,
+                float pixelWidthHeightRatio) {
             boolean isInitialRatio = layout.getAspectRatio() == 0;
             layout.setAspectRatio(height == 0 ? 1 : (width * pixelWidthHeightRatio) / height);
 

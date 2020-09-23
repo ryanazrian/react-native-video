@@ -1,6 +1,7 @@
 package com.brentvatne.exoplayer;
+// package com.pahamify.android.brentvatne.exoplayer;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 
@@ -13,15 +14,18 @@ class ResizeMode {
      */
     static final int RESIZE_MODE_FIT = 0;
     /**
-     * The width is fixed and the height is increased or decreased to obtain the desired aspect ratio.
+     * The width is fixed and the height is increased or decreased to obtain the
+     * desired aspect ratio.
      */
     static final int RESIZE_MODE_FIXED_WIDTH = 1;
     /**
-     * The height is fixed and the width is increased or decreased to obtain the desired aspect ratio.
+     * The height is fixed and the width is increased or decreased to obtain the
+     * desired aspect ratio.
      */
     static final int RESIZE_MODE_FIXED_HEIGHT = 2;
     /**
-     * The height and the width is increased or decreased to fit the size of the view.
+     * The height and the width is increased or decreased to fit the size of the
+     * view.
      */
     static final int RESIZE_MODE_FILL = 3;
     /**
@@ -30,17 +34,13 @@ class ResizeMode {
     static final int RESIZE_MODE_CENTER_CROP = 4;
 
     @Retention(SOURCE)
-    @IntDef({
-            RESIZE_MODE_FIT,
-            RESIZE_MODE_FIXED_WIDTH,
-            RESIZE_MODE_FIXED_HEIGHT,
-            RESIZE_MODE_FILL,
-            RESIZE_MODE_CENTER_CROP
-    })
+    @IntDef({ RESIZE_MODE_FIT, RESIZE_MODE_FIXED_WIDTH, RESIZE_MODE_FIXED_HEIGHT, RESIZE_MODE_FILL,
+            RESIZE_MODE_CENTER_CROP })
     public @interface Mode {
     }
 
-    @ResizeMode.Mode static int toResizeMode(int ordinal) {
+    @ResizeMode.Mode
+    static int toResizeMode(int ordinal) {
         switch (ordinal) {
             case ResizeMode.RESIZE_MODE_FIXED_WIDTH:
                 return ResizeMode.RESIZE_MODE_FIXED_WIDTH;
