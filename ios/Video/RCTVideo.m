@@ -1855,13 +1855,26 @@ didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest {
                           JSONObjectWithData:data
                           options:kNilOptions
                           error:nil];
-                          NSString *ckc = [res objectForKey:@"ckc"];
-                          NSLog(@"RYAN2 %@", ckc);
-                          NSData *nsdataFromBase64String = [[NSData alloc]
-                          initWithBase64EncodedString:ckc options:0];
+                          if (res != nil) {
+                            NSString *ckc = [res objectForKey:@"ckc"];
+                            NSLog(@"RYAN2 %@", ckc);
+                            NSData *nsdataFromBase64String = [[NSData alloc]
+                            initWithBase64EncodedString:ckc options:0];
 
-                        [dataRequest respondWithData:nsdataFromBase64String];
-                        [loadingRequest finishLoading];
+                            [dataRequest respondWithData:nsdataFromBase64String];
+                            [loadingRequest finishLoading];
+                          } else {
+                            NSError *licenseError = [NSError errorWithDomain: @"RCTVideo"
+                                                                    code: RCTVideoErrorNoDataFromLicenseRequest
+                                                                userInfo: @{
+                                                                            NSLocalizedDescriptionKey: @"Error obtaining DRM license.",
+                                                                            NSLocalizedFailureReasonErrorKey: @"No data received from the license server.",
+                                                                            NSLocalizedRecoverySuggestionErrorKey: @"Is the licenseServer ok?."
+                                                                            }
+                                                 ];
+                            [self finishLoadingWithError:licenseError];
+                            self->_requestingCertificateErrored = YES;    
+                          }
                       } else {
                         NSError *licenseError = [NSError errorWithDomain: @"RCTVideo"
                                                                     code: RCTVideoErrorNoDataFromLicenseRequest
